@@ -4,29 +4,32 @@ cont = 1
 userList = []
 
 while cont != 0:
-  firstName = input("Enter your first name: ")
-  lastName = input("Enter your last name: ")
-  age = int(input("Enter your age: "))
+  try:
+    firstName = input("Enter your first name: ")
+    lastName = input("Enter your last name: ")
+    age = int(input("Enter your age: "))
 
-  user = User(firstName, lastName, age)
-  userList.append(user)
+    user = User(firstName, lastName, age)
+    userList.append(user)
 
-  if user.age == 99:
-    break
+    if user.age == 99:
+      break
 
-  if user.age == 98:
-    continue
+    if user.age == 98:
+      continue
 
-  print(f"Hi, {user.firstName} {user.lastName}, your age is {user.age}!")
+    print(f"Hi, {user.firstName} {user.lastName}, your age is {user.age}!")
 
-  if user.age <= 17:
-    print(f"{user.firstName} is teenager!")
-  elif user.age >= 18 and user.age <= 50:
-    print(f"{user.firstName} is adult!")
-  else:
-    print(f"{user.firstName} is elderly!")
+    if user.age <= 17:
+      print(f"{user.firstName} is teenager!")
+    elif user.age >= 18 and user.age <= 50:
+      print(f"{user.firstName} is adult!")
+    else:
+      print(f"{user.firstName} is elderly!")
 
-  cont = int(input("Do you want to continue registering? 0 - Exit, 1 - Continue "))
+    cont = int(input("Do you want to continue registering? 0 - Exit, 1 - Continue "))
+  except ValueError:
+    print("You must enter a valid number!")
 
 else:
   print("List of registered users: ")
